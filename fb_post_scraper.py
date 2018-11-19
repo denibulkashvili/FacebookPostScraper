@@ -1,6 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+from bs4 import BeautifulSoup
+
+import csv
+
+
 driver = webdriver.Chrome()
 
 class Browser():
@@ -38,4 +43,22 @@ class Browser():
         sort_by_recent = driver.find_element_by_partial_link_text(sort_param)
         sort_by_recent.click()
 
+    
+
 browser = Browser()
+
+class Scraper():
+
+    def find_posts(self):
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'lxml')
+        
+        posts = soup.find_all('div', class_="_307z")
+        for post in posts:
+            text = post.find('span', class_="_5-jo")
+            a = post.find('a', class_="_3084")
+            link = a['href']
+       
+scraper = Scraper()
+
+
