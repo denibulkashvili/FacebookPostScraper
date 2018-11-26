@@ -13,6 +13,7 @@ class Browser():
     def get_webpage(self, url):
         driver.get(url)
         assert "Facebook" in driver.title
+        print("Visiting a webpage")
 
     def login(self, email, pswrd):
         elem = driver.find_element_by_name("email")
@@ -20,6 +21,7 @@ class Browser():
         elem = driver.find_element_by_name("pass")
         elem.send_keys(pswrd)
         elem.send_keys(Keys.RETURN)
+        print("Login successful.")
 
     def escape(self):
         driver.implicitly_wait(10)
@@ -42,6 +44,7 @@ class Browser():
     def sort_by(self, sort_param):
         sort_by_recent = driver.find_element_by_partial_link_text(sort_param)
         sort_by_recent.click()
+        print("Search complete.")
 
     
 
