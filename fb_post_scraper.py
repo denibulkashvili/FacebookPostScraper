@@ -58,9 +58,12 @@ class Scraper():
         
         posts = soup.find_all('div', class_="_307z")
         for post in posts:
-            text = post.find('span', class_="_5-jo")
+            text = post.find('span', class_="_5-jo").get_text()
             a = post.find('a', class_="_3084")
             link = a['href']
+            print(text)
+            print(link)
+        print("Posts retrieved.")
        
 scraper = Scraper()
 
