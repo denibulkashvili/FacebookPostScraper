@@ -52,7 +52,7 @@ browser = Browser()
 
 class Scraper():
 
-    def find_posts(self):
+    def find_posts(self, url):
         html = driver.page_source
         soup = BeautifulSoup(html, 'lxml')
         
@@ -60,7 +60,7 @@ class Scraper():
         for post in posts:
             text = post.find('span', class_="_5-jo").get_text()
             a = post.find('a', class_="_3084")
-            link = a['href']
+            link = url + a['href']
             print(text)
             print(link)
         print("Posts retrieved.")

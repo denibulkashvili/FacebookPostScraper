@@ -20,4 +20,4 @@ browser.filter_by(filter_name)
 browser.sort_by(sort_parameter_name)
 
 # Scraper Actions
-scraper.find_posts()
+scraper.find_posts(url)
