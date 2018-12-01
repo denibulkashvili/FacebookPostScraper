@@ -12,10 +12,16 @@ try:
     cursor = connection.cursor()
     # Print PostgreSQL Connection properties
     print ( connection.get_dsn_parameters(),"\n")
-    # Print PostgreSQL version
-    cursor.execute("SELECT version();")
-    record = cursor.fetchone()
-    print("You are connected to - ", record,"\n")
+    # Create a table
+    create_table_query = '''CREATE TABLE cover
+          (ID INT PRIMARY KEY     NOT NULL,
+          POST_TEXT           TEXT    NOT NULL,
+          POST_LINK         TEXT    NOT NULL); '''
+
+
+    cursor.execute(create_table_query)
+    connection.commit()
+    print("Created table 'cover' in PostgreSQL.")
 except (Exception, psycopg2.Error) as error :
     print ("Error while connecting to PostgreSQL", error)
 finally:
