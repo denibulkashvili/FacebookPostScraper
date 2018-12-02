@@ -1,5 +1,4 @@
 import psycopg2
-
 import login_info as login
 
 
@@ -9,6 +8,9 @@ create_table_query = '''CREATE TABLE cover
         POST_TEXT     TEXT    NOT NULL,); '''
 
 insert_records_query = """ INSERT INTO cover (POST_LINK, POST_TEXT) VALUES (%s,%s)"""
+
+select_query = "select * from cover"
+
 
 
 # Database Operations
@@ -50,3 +52,13 @@ def insert_records(text, link):
     connection.commit()
     close_connection(connection, cursor)
     print(f'Added to database: {text}')
+
+def retrieve_records(text, link):
+    """Retrieves records from a PostgreSQL table"""
+    connection, cursor = connect_to_database()
+    cover_records = cursor.fetchall()
+    for row in cover_records:
+        if row != (link, text):
+            return True
+    close_connection(connection, cursor)
+        
