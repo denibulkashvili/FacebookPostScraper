@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 from bs4 import BeautifulSoup
 
+import fb_database as db
 
 driver = webdriver.Chrome()
 
@@ -50,11 +50,11 @@ browser = Browser()
 
 class Scraper():
 
-    def save_to_db(self, text, link):
-        pass
-
     def read_db(self, text, link):
-        pass
+        if db.retrieve_records(text, link) == False:
+            db.insert_records(text, link)
+        else:
+            print("Record already in datatbase.")
                     
 
     def find_posts(self, url):
@@ -66,8 +66,7 @@ class Scraper():
             text = post.find('span', class_="_5-jo").get_text()
             a = post.find('a', class_="_3084")
             link = url + a['href']
-            print(text)
-            print(link)
+            self.read_db(text, link)
         print("Posts retrieved.")
        
 scraper = Scraper()
