@@ -7,7 +7,7 @@ pswrd = login.pswrd
 
 # Website Settings
 url = "https://www.facebook.com"
-search_keyword = "cover"
+keyword = "cover"
 filter_name = 'Your Groups'
 sort_parameter_name = 'Most Recent'
 
@@ -15,7 +15,7 @@ sort_parameter_name = 'Most Recent'
 browser.get_webpage(url)
 browser.login(email, pswrd)
 browser.escape()
-browser.search_keyword(search_keyword)
+browser.search_by(keyword)
 browser.filter_by(filter_name)
 browser.sort_by(sort_parameter_name)
 

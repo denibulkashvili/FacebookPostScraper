@@ -3,8 +3,6 @@ from selenium.webdriver.common.keys import Keys
 
 from bs4 import BeautifulSoup
 
-import csv
-
 
 driver = webdriver.Chrome()
 
@@ -30,7 +28,7 @@ class Browser():
         driver.implicitly_wait(10)
         elem.send_keys(Keys.ESCAPE)
 
-    def search_keyword(self, search_keyword):
+    def search_by(self, search_keyword):
         elem = driver.find_element_by_name("q")
         elem.send_keys(search_keyword)
         driver.implicitly_wait(5)
@@ -51,6 +49,13 @@ class Browser():
 browser = Browser()
 
 class Scraper():
+
+    def save_to_db(self, text, link):
+        pass
+
+    def read_db(self, text, link):
+        pass
+                    
 
     def find_posts(self, url):
         html = driver.page_source
