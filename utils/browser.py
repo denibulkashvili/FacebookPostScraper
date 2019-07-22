@@ -1,16 +1,16 @@
-from bs4 import BeautifulSoup
+"""Browser Module"""
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
 # Crome driver options
-option = Options()
+OPTION = Options()
 
-option.add_argument("--disable-infobars")
-option.add_argument("start-maximized")
-option.add_argument("--disable-extensions")
+OPTION.add_argument("--disable-infobars")
+OPTION.add_argument("start-maximized")
+OPTION.add_argument("--disable-extensions")
 # disable notifications popup alert
-option.add_experimental_option(
+OPTION.add_experimental_option(
     "prefs", {"profile.default_content_setting_values.notifications": 1}
 )
 
@@ -19,7 +19,7 @@ class Browser:
     """Browser class"""
 
     def __init__(self):
-        self.driver = webdriver.Chrome(chrome_options=option)
+        self.driver = webdriver.Chrome(chrome_options=OPTION)
 
     def get_url(self):
         """Navigates to Facebook mainpage"""
