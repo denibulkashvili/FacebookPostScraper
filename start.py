@@ -1,9 +1,8 @@
-"""Scraper Quickstart"""
-from utils import browser
+"""FacebookScraper Quickstart"""
+from utils import browser, scraper
 from assets.login_info import email, pswrd
 
-# Website Settings
-url = "https://www.facebook.com"
+# Search Settings
 keyword = "cover"
 filter_name = 'Your Groups'
 sort_parameter = 'Most Recent'
@@ -17,3 +16,5 @@ b.filter_by(filter_name)
 b.sort_by(sort_parameter)
 
 # Scraper Actions
+s = scraper.Scraper(html=b.driver.page_source)
+s.find_posts()
