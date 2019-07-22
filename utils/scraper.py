@@ -1,23 +1,24 @@
 """Module for scraping"""
 from bs4 import BeautifulSoup
 
-class Scraper():
+
+class Scraper:
     """Scraper class"""
 
     def __init__(self, html):
         self.html = html
-        self.soup = BeautifulSoup(html, 'lxml')
-        print(f'Soup: {self.soup} - Soup')
+        self.soup = BeautifulSoup(html, "lxml")
+        print(f"Soup: {self.soup} - Soup")
 
     def find_posts(self):
         """Scrapes posts on a page"""
 
-        posts = self.soup.find_all('div', class_="_401d")
+        posts = self.soup.find_all("div", class_="_401d")
 
         ## TODO: scrape individula posts and parse their texts and links
 
         post = posts[0]
-        text = post.find('div', class_="_6-cp").div
+        text = post.find("div", class_="_6-cp").div
         print(text)
         # for post in posts:
         #     text_wrapper = post.find('div', class_="_6-cp")

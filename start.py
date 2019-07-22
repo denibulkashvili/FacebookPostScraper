@@ -4,8 +4,8 @@ from assets.login_info import email, pswrd
 
 # Search Settings
 keyword = "cover"
-filter_name = 'Your Groups'
-sort_parameter = 'Most Recent'
+filter_name = "Your Groups"
+sort_parameter = "Most Recent"
 
 # Browser Actions
 b = browser.Browser()

@@ -10,9 +10,9 @@ option.add_argument("--disable-infobars")
 option.add_argument("start-maximized")
 option.add_argument("--disable-extensions")
 # disable notifications popup alert
-option.add_experimental_option("prefs", { 
-    "profile.default_content_setting_values.notifications": 1 
-})
+option.add_experimental_option(
+    "prefs", {"profile.default_content_setting_values.notifications": 1}
+)
 
 
 class Browser:
@@ -43,7 +43,7 @@ class Browser:
         elem.send_keys(search_keyword)
         self.driver.implicitly_wait(10)
         elem.send_keys(Keys.RETURN)
-        print(f'Searching by keyword {search_keyword}')
+        print(f"Searching by keyword {search_keyword}")
 
     def filter_by(self, filter_name):
         """Apply filters"""
