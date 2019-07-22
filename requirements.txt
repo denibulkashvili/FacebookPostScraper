@@ -24,7 +24,7 @@ PySocks==1.6.8
 selenium==3.14.1
 six==1.11.0
 toml==0.10.0
-urllib3==1.24.1
+urllib3==1.25.3
 win-inet-pton==1.0.1
 wincertstore==0.2
 wrapt==1.11.1
