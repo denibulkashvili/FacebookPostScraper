@@ -12,7 +12,7 @@ Facebook Post Scraper is a small Python script for searching and scraping posts 
 * BeautifulSoup
 * (In development) PostgreSQL
 
-## Instalation and Use
+## Installation and Use
 
 1. Clone the project. 
     ```
