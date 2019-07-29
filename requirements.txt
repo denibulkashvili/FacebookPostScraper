@@ -21,6 +21,7 @@ pycparser==2.19
 pylint==2.3.1
 pyOpenSSL==18.0.0
 PySocks==1.6.8
+python-dotenv==0.10.3
 selenium==3.14.1
 six==1.11.0
 toml==0.10.0

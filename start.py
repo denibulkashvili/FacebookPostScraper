@@ -1,6 +1,13 @@
 """FacebookScraper Quickstart"""
 from utils import browser, scraper
-from assets.login_info import email, pswrd
+from dotenv import load_dotenv
+import os
+
+# secret info
+load_dotenv()
+email = os.environ("FB_EMAIL")
+password = os.environ("FB_PASSWORD")
+
 
 # Search Settings
 keyword = "cover"
@@ -10,7 +17,7 @@ sort_parameter = "Most Recent"
 # Browser Actions
 b = browser.Browser()
 b.get_url()
-b.login(email, pswrd)
+b.login(email, password)
 b.search_by(keyword)
 b.filter_by(filter_name)
 b.sort_by(sort_parameter)

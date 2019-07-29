@@ -3,3 +3,4 @@ chromedriver.exe
 login_info.py
 __pycache__/
 .vscode/
+.env
