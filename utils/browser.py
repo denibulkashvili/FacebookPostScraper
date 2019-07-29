@@ -26,7 +26,7 @@ class Browser:
         url = "https://www.facebook.com"
         self.driver.get(url)
         assert "Facebook" in self.driver.title
-        print("Visiting Facebook Homepage")
+        print("[Browser] Visiting Facebook Homepage")
 
     def login(self, email, pswrd):
         """Logs in usin provided login credentials"""
@@ -35,7 +35,7 @@ class Browser:
         elem = self.driver.find_element_by_name("pass")
         elem.send_keys(pswrd)
         elem.send_keys(Keys.RETURN)
-        print("Login successful.")
+        print("[Browser] Login successful.")
 
     def search_by(self, search_keyword):
         """Initiate the search with keyword"""
@@ -43,16 +43,16 @@ class Browser:
         elem.send_keys(search_keyword)
         self.driver.implicitly_wait(10)
         elem.send_keys(Keys.RETURN)
-        print(f"Searching by keyword {search_keyword}")
+        print(f"[Browser] Searching by keyword {search_keyword}")
 
     def filter_by(self, filter_name):
         """Apply filters"""
         filter_groups = self.driver.find_element_by_partial_link_text(filter_name)
         filter_groups.click()
-        print("Filter applied")
+        print("[Browser] Filter applied")
 
     def sort_by(self, sort_param):
         """Apply sorting parameters"""
         sort_by_recent = self.driver.find_element_by_partial_link_text(sort_param)
         sort_by_recent.click()
-        print("Sorted.")
+        print("[Browser] Sorted.")

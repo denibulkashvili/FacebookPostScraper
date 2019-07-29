@@ -5,12 +5,12 @@ import os
 
 # secret info
 load_dotenv()
-email = os.environ("FB_EMAIL")
-password = os.environ("FB_PASSWORD")
+email = os.getenv("FB_EMAIL")
+password = os.getenv("FB_PASSWORD")
 
 
 # Search Settings
-keyword = "cover"
+keyword = "part-time"
 filter_name = "Your Groups"
 sort_parameter = "Most Recent"
 

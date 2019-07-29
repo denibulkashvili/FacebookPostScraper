@@ -8,7 +8,7 @@ class Scraper:
     def __init__(self, html):
         self.html = html
         self.soup = BeautifulSoup(html, "lxml")
-        print(f"Soup: {self.soup} - Soup")
+        print(f"[Scraper] Soup: {self.soup} - Soup")
 
     def find_posts(self):
         """Scrapes posts on a page"""

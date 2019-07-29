@@ -24,4 +24,5 @@ Facebook Post Scraper is a small Python script for searching and scraping posts 
     ```
 3. Rename `env.sample` into `.env` and update with your login info
 4. Update seach keyword and other ssearch settings in `start.py`
-5. Run `python start.py` from the terminal
+5. Download [chrome driver](https://chromedriver.chromium.org/downloads) and copy it into the root directory
+6. Run `python start.py` from the terminal
