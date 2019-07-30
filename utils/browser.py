@@ -2,6 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 
 # Crome driver options
 OPTION = Options()
@@ -39,20 +40,33 @@ class Browser:
 
     def search_by(self, search_keyword):
         """Initiate the search with keyword"""
-        elem = self.driver.find_element_by_name("q")
-        elem.send_keys(search_keyword)
-        self.driver.implicitly_wait(10)
-        elem.send_keys(Keys.RETURN)
-        print(f"[Browser] Searching by keyword {search_keyword}")
+        try: 
+            elem = self.driver.find_element_by_name("q")
+            elem.send_keys(search_keyword)
+            # self.driver.implicitly_wait(20)
+            elem.send_keys(Keys.RETURN)
+            print(f"[Browser] Searching by keyword {search_keyword}")
+        except (StaleElementReferenceException):
+            print("[Error] Error searching by keyword")
 
     def filter_by(self, filter_name):
         """Apply filters"""
-        filter_groups = self.driver.find_element_by_partial_link_text(filter_name)
-        filter_groups.click()
-        print("[Browser] Filter applied")
+        try:
+            filter_groups = self.driver.find_element_by_partial_link_text(filter_name)
+            filter_groups.click()
+            print("[Browser] Filter applied")
+        except (NoSuchElementException):
+            print(f"[Error] Couldn't find the selector {filter_name}.")
 
     def sort_by(self, sort_param):
         """Apply sorting parameters"""
-        sort_by_recent = self.driver.find_element_by_partial_link_text(sort_param)
-        sort_by_recent.click()
-        print("[Browser] Sorted.")
+        try:
+            sort_by_recent = self.driver.find_element_by_partial_link_text(sort_param)
+            sort_by_recent.click()
+            print("[Browser] Sorted.")
+        except (NoSuchElementException):
+            print(f"[Error] Couldn't find the sorting parameter {sort_param}.")
+
+    def get_source(self):
+        """Returns curren page source html"""
+        return self.driver.page_source.encode('utf-8')
