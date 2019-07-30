@@ -23,5 +23,5 @@ b.filter_by(filter_name)
 b.sort_by(sort_parameter)
 
 # Scraper Actions
-s = scraper.Scraper(html=b.driver.page_source)
+s = scraper.Scraper(html=b.get_source())
 s.find_posts()
