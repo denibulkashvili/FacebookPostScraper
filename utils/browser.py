@@ -51,12 +51,13 @@ class Browser:
 
     def filter_by(self, filter_name):
         """Apply filters"""
+        self.driver.implicitly_wait(10)
         try:
             filter_groups = self.driver.find_element_by_partial_link_text(filter_name)
             filter_groups.click()
             print("[Browser] Filter applied")
-        except (NoSuchElementException):
-            print(f"[Error] Couldn't find the selector {filter_name}.")
+        except (NoSuchElementException) as e:
+            print(f"[Error] Couldn't find the selector {filter_name}. - {e}")
 
     def sort_by(self, sort_param):
         """Apply sorting parameters"""
@@ -64,8 +65,8 @@ class Browser:
             sort_by_recent = self.driver.find_element_by_partial_link_text(sort_param)
             sort_by_recent.click()
             print("[Browser] Sorted.")
-        except (NoSuchElementException):
-            print(f"[Error] Couldn't find the sorting parameter {sort_param}.")
+        except (NoSuchElementException) as e:
+            print(f"[Error] Couldn't find the sorting parameter {sort_param}. - {e}")
 
     def get_source(self):
         """Returns curren page source html"""
