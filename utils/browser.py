@@ -69,5 +69,5 @@ class Browser:
             print(f"[Error] Couldn't find the sorting parameter {sort_param}. - {e}")
 
     def get_source(self):
-        """Returns curren page source html"""
+        """Returns current page source html"""
         return self.driver.page_source.encode('utf-8')
